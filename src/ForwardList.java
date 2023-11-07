@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public class ForwardList {
     Element Head;
     int size;
@@ -51,6 +53,26 @@ public class ForwardList {
             Temp = Temp.getNext();
         Temp.setNext(null);
         size--;
+    }
+    public void remove (int Index){
+        Element Temp = Head;
+        if (Index <= 0 || Index >= size) {
+            Head = Temp.getNext();
+            return;
+        }
+
+        for (int i = 0; i < Index - 1; i++) {
+            Temp = Temp.getNext();
+        }
+        Temp.setNext(Temp.getNext().getNext());
+        size --;
+    }
+    public void revers (ForwardList){
+        
+    }
+
+    public void clear(int cl){
+        Head = null;
     }
     public void print(){
         Element Temp = Head;

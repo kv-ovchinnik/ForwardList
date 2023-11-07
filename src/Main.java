@@ -20,6 +20,17 @@ int value = sc.nextInt();
         System.out.println("Введите индекс добавляемого элемента: ");
         int index = sc.nextInt();
         list.insert(value, index);
+        list.print();
+        System.out.println("Введите индекс удаляемого элемента: ");
+        int del = sc.nextInt();
+        list.remove(del);
+        list.print();
+        System.out.println("Для удаления списка введите любое число: ");
+        int cl = sc.nextInt();
+        list.clear(cl);
+        list.print();
+        System.out.println("Список пуст!");
+
 
 /*list.pop_front();
 list.pop_back();*/

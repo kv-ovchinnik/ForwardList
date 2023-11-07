@@ -21,11 +21,11 @@ public class Element {
     public Element(int Data){
         setData(Data);
         setNext(null);
-        System.out.println("EConstructor: \t" + Integer.toHexString(this.hashCode()));
+        //System.out.println("EConstructor: \t" + Integer.toHexString(this.hashCode()));
     }
     public Element(int Data, Element Next){
         setData(Data);
         setNext(Next);
-        System.out.println("EConstructor: \t" + Integer.toHexString(this.hashCode()));
+        //System.out.println("EConstructor: \t" + Integer.toHexString(this.hashCode()));
     }
 }

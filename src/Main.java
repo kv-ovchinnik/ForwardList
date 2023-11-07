@@ -10,12 +10,12 @@ int n = sc.nextInt();
 
 ForwardList list = new ForwardList();
 for(int i = 0; i < n; i++){
-    list.push_back(rand.nextInt(100));
-   // list.push_front(rand.nextInt(100));
+    //list.push_back(rand.nextInt(100));
+    list.push_front(rand.nextInt(100));
 }
 //list.push_back(123);
-list.print();
-System.out.println("Введите значение добавляемого элемента: ");
+//list.print();
+/*System.out.println("Введите значение добавляемого элемента: ");
 int value = sc.nextInt();
         System.out.println("Введите индекс добавляемого элемента: ");
         int index = sc.nextInt();
@@ -29,12 +29,20 @@ int value = sc.nextInt();
         int cl = sc.nextInt();
         list.clear(cl);
         list.print();
-        System.out.println("Список пуст!");
-
+        System.out.println("Список пуст!");*/
+        long start_time = System.nanoTime();
+        ForwardList list2 = new ForwardList(list);
+        long end_time = System.nanoTime();
+        System.out.println("Список скопировался за %f секунд.".formatted((double)(end_time- start_time)*1e-9));
+       /* list2.print();
+        list.pop_back();
+        list.print();
+        list2.print();
+*/
 
 /*list.pop_front();
 list.pop_back();*/
-list.print();
+//list.print();
 
     }
 }

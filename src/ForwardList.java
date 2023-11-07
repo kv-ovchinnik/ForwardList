@@ -8,6 +8,21 @@ public class ForwardList {
         size = 0;
         System.out.println("LConstructor: \t" + Integer.toHexString(this.hashCode()));
     }
+    ForwardList(ForwardList other){
+        for (Element Temp = other.Head; Temp != null; Temp = Temp.getNext())
+            this.push_front(Temp.getData());
+        revers();
+
+    }
+    public void revers(){
+        ForwardList revers = new ForwardList();
+        while (Head != null){
+            revers.push_front(Head.Data);
+            pop_front();
+        }
+        this.Head = revers.Head;
+        revers.Head = null;
+    }
     public void push_front(int Data){
        /* Element New = new Element(Data);
         New.setNext(Head);
@@ -67,9 +82,7 @@ public class ForwardList {
         Temp.setNext(Temp.getNext().getNext());
         size --;
     }
-    public void revers (ForwardList){
-        
-    }
+
 
     public void clear(int cl){
         Head = null;
@@ -78,7 +91,7 @@ public class ForwardList {
         Element Temp = Head;
         while (Temp != null)
         {
-            System.out.println(Temp.getData() + "\t");
+            System.out.print(Temp.getData() + "\t");
             Temp = Temp.getNext();
         }
 

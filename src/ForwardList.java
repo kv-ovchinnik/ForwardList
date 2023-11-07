@@ -1,21 +1,21 @@
 import java.util.Iterator;
 
-public class ForwardList {
-    Element Head;
+public class ForwardList <T> {
+    Element <T> Head;
     int size;
     public ForwardList(){
         this.Head = null;
         size = 0;
         System.out.println("LConstructor: \t" + Integer.toHexString(this.hashCode()));
     }
-    ForwardList(ForwardList other){
-        for (Element Temp = other.Head; Temp != null; Temp = Temp.getNext())
+    ForwardList(ForwardList<T> other){
+        for (Element<T> Temp = other.Head; Temp != null; Temp = Temp.getNext())
             this.push_front(Temp.getData());
         revers();
 
     }
     public void revers(){
-        ForwardList revers = new ForwardList();
+        ForwardList<T> revers = new ForwardList<T>();
         while (Head != null){
             revers.push_front(Head.Data);
             pop_front();
@@ -23,33 +23,33 @@ public class ForwardList {
         this.Head = revers.Head;
         revers.Head = null;
     }
-    public void push_front(int Data){
+    public void push_front(T Data){
        /* Element New = new Element(Data);
         New.setNext(Head);
         Head = New;*/
         Head = new Element(Data, Head);
         size++;
     }
-    public void  push_back(int Data){
+    public void  push_back(T Data){
         if(Head == null){
             push_front(Data);
             return;
 
         }
-        Element Temp = Head;
+        Element<T> Temp = Head;
         while (Temp.getNext() != null)
             Temp = Temp.getNext();
         Temp.setNext(new Element(Data));
         size++;
     }
-    void insert (int Data, int Index){
+    void insert (T Data, int Index){
         if(Index == 0){
             push_front(Data);
             return;
         }
         if(Index > size )
             return;
-        Element Temp = Head;
+        Element<T> Temp = Head;
         for(int i = 0; i < Index - 1; i++)
             Temp = Temp.getNext();
         /*Element New = new Element(Data);
@@ -63,14 +63,14 @@ public class ForwardList {
         size--;
     }
     public void pop_back(){
-        Element Temp = Head;
+        Element<T> Temp = Head;
         while (Temp.getNext().getNext() !=null)
             Temp = Temp.getNext();
         Temp.setNext(null);
         size--;
     }
     public void remove (int Index){
-        Element Temp = Head;
+        Element<T> Temp = Head;
         if (Index <= 0 || Index >= size) {
             Head = Temp.getNext();
             return;
@@ -88,7 +88,7 @@ public class ForwardList {
         Head = null;
     }
     public void print(){
-        Element Temp = Head;
+        Element <T>Temp = Head;
         while (Temp != null)
         {
             System.out.print(Temp.getData() + "\t");
